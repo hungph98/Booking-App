@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 8186;
+const cookieParser  = require('cookie-parser');
 const db = require('./src/configs/configdb');
 const authRouter = require('./src/routes/auth');
 const userRouter = require('./src/routes/users');
@@ -12,6 +13,7 @@ app.get('/', (req, res) => {
 });
 db.connect();
 app.use(express.json());
+app.use(cookieParser());
 app.use('/api/auth', authRouter);
 app.use('/api/user', userRouter);
 app.use('/api/hotel', hotelRouter);

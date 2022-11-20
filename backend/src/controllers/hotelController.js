@@ -1,5 +1,4 @@
 const Hotel = require("../models/Hotel");
-// const {createError} = require("../utils/error");
 
 class HotelController {
 

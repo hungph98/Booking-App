@@ -1,9 +1,12 @@
 const express = require('express');
-
 const router = express.Router();
+const RoomController = require('../controllers/RoomController');
+const verifyAdmin = require('../utils/verifyToken');
 
-router.get('/', (req, res) => {
-    res.send('Room endpoint')
-});
+router.post("/create/:hotelid", verifyAdmin, RoomController.createRoom)
+router.put("/update/:id", verifyAdmin, RoomController.updateRoom)
+router.delete("/:id/:hotelid", verifyAdmin, RoomController.deleteRoom)
+router.get("/:id", RoomController.getRoom)
+router.get("/", RoomController.getAllRoom)
 
 module.exports = router;
