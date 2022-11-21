@@ -1,9 +1,8 @@
-import React from "react";
 import '../../App.css';
 import { faBed, faCalendarDays, faCar, faPerson, faPlane, faTaxi,} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { DateRange } from "react-date-range";
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
@@ -80,7 +79,7 @@ function Header({ type }){
                         </h1>
                         <p className="headerDesc">
                             Get rewarded for your travels – unlock instant savings of 10% or
-                            more with a free Lamabooking account
+                            more with a free Lama-booking account
                         </p>
                         {!user && <button className="headerBtn">Sign in / Register</button>}
                         <div className="headerSearch">

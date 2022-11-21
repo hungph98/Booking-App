@@ -1,7 +1,7 @@
 import React from 'react';
 import "../../App.css";
 
-const Footer = () => {
+function Footer() {
   return (
     <div className="footer">
       <div className="fLists">
@@ -35,7 +35,7 @@ const Footer = () => {
           <li className="fListItem">Travel Agents </li>
         </ul>
         <ul className="fList">
-          <li className="fListItem">Curtomer Service</li>
+          <li className="fListItem">Customer Service</li>
           <li className="fListItem">Partner Help</li>
           <li className="fListItem">Careers</li>
           <li className="fListItem">Sustainability</li>

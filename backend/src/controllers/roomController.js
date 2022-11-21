@@ -38,7 +38,7 @@ class RoomController {
         try {
             await Room.findByIdAndDelete(req.params.id);
             try {
-                await Hotel.findByIdAndDelete(hotelId, { 
+                await Hotel.findByIdAndDelete(hotelId, {
                     $pull: {rooms: req.params.id}
                 });
             } catch (err) {
@@ -71,4 +71,4 @@ class RoomController {
     }
 }
 
-module.exports = new RoomController;``
+module.exports = new RoomController;
