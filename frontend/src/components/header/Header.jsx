@@ -7,7 +7,7 @@ import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
-import { SearchContext } from "../../context/SearchContext";
+// import { SearchContext } from "../../context/SearchContext";
 import { AuthContext } from "../../context/AuthContext";
 
 function Header({ type }){
@@ -40,10 +40,10 @@ function Header({ type }){
         });
     };
 
-    const { dispatch } = useContext(SearchContext);
+    // const { dispatch } = useContext(SearchContext);
 
     const handleSearch = () => {
-        dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
+        // dispatch({ type: "NEW_SEARCH", payload: { destination, dates, options } });
         navigate("/hotels", { state: { destination, dates, options } });
     };
 
@@ -197,6 +197,6 @@ function Header({ type }){
             </div>
         </div>
     );
-};
+}
 
 export default Header;

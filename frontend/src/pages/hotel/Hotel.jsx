@@ -19,7 +19,7 @@ function Hotel() {
     const [open, setOpen] = useState(false);
     const [openModal, setOpenModal] = useState(false);
 
-    const {data, loading} = useFetch(`/hotels/find/${id}`);
+    const {data, loading} = useFetch(`/hotel/find/${id}`);
     const {user} = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -34,10 +34,10 @@ function Hotel() {
 
     const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
-    // const handleOpen = (i) => {
-    //     setSlideNumber(i);
-    //     setOpen(true);
-    // };
+    const handleOpen = (i) => {
+        setSlideNumber(i);
+        setOpen(true);
+    };
 
     const handleMove = (direction) => {
         let newSlideNumber;
@@ -100,18 +100,18 @@ function Hotel() {
                             <span>{data.address}</span>
                         </div>
                         <span className="hotelDistance">Excellent location – {data.distance}m from center</span>
-                        <span className="hotelPriceHighlight">Book a stay over ${data.cheapestPrice} at this property and get afree airport taxi</span>
+                        <span className="hotelPriceHighlight">Book a stay over ${data.cheapestPrice} at this property and get free airport taxi</span>
                         <div className="hotelImages">
-                            {/*{data.photos?.map((photo, i) => (*/}
-                            {/*    <div className="hotelImgWrapper" key={i}>*/}
-                            {/*        <img*/}
-                            {/*            onClick={() => handleOpen(i)}*/}
-                            {/*            src={photo}*/}
-                            {/*            alt=""*/}
-                            {/*            className="hotelImg"*/}
-                            {/*        />*/}
-                            {/*    </div>*/}
-                            {/*))}*/}
+                            {data.photos.map((photo, i) => (
+                                <div className="hotelImgWrapper" key={i}>
+                                    <img
+                                        onClick={() => handleOpen(i)}
+                                        src={photo}
+                                        alt=""
+                                        className="hotelImg"
+                                    />
+                                </div>
+                            ))}
                         </div>
                         <div className="hotelDetails">
                             <div className="hotelDetailsTexts">
@@ -120,10 +120,7 @@ function Hotel() {
                             </div>
                             <div className="hotelDetailsPrice">
                                 <h1>Perfect for a {days}-night stay!</h1>
-                                <span>
-                          Located in the real heart of Krakow, this property has an
-                          excellent location score of 9.8!
-                        </span>
+                                <span>Located in the real heart of Krakow, this property has an excellent location score of 9.8!</span>
                                 <h2>
                                     <b>${days * data.cheapestPrice * options.room}</b> ({days}{" "}nights)
                                 </h2>

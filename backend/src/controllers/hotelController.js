@@ -45,8 +45,9 @@ class HotelController {
 
     // Get all Hotel
     getAllHotel = async (req, res, next) => {
+        const {min, max, ...others} = req.query;
         try {
-            const getAllDataHotel = await Hotel.find(req.params.id);
+            const getAllDataHotel = await Hotel.find({...others, cheapestPrice: {$gt: min || 1, $lt: max || 9999}}).limit(req.query.limit);
             res.status(200).json(getAllDataHotel);
         } catch (err){
             next(err);
