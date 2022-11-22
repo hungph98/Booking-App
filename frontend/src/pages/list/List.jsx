@@ -10,7 +10,6 @@ import "../../App.css"
 
 function List()  {
     const location = useLocation();
-    console.log("location -->", location)
     const [destination] = useState(location.state.destination);
     const [dates, setDates] = useState(location.state.dates);
     const [openDate, setOpenDate] = useState(false);
@@ -21,8 +20,6 @@ function List()  {
     const {data, loading, reFetch} = useFetch(
         `/hotel?city=${destination}&min=${min || 0}&max=${max || 9999}`
     );
-
-    console.log("data ------>", data)
 
     const handleClick = () => {
         reFetch();
