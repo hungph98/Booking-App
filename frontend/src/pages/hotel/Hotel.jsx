@@ -34,10 +34,10 @@ function Hotel() {
 
     const days = dayDifference(dates[0].endDate, dates[0].startDate);
 
-    const handleOpen = (i) => {
-        setSlideNumber(i);
-        setOpen(true);
-    };
+    // const handleOpen = (i) => {
+    //     setSlideNumber(i);
+    //     setOpen(true);
+    // };
 
     const handleMove = (direction) => {
         let newSlideNumber;
@@ -102,21 +102,21 @@ function Hotel() {
                         <span className="hotelDistance">Excellent location – {data.distance}m from center</span>
                         <span className="hotelPriceHighlight">Book a stay over ${data.cheapestPrice} at this property and get free airport taxi</span>
                         <div className="hotelImages">
-                            {data.photos.map((photo, i) => (
-                                <div className="hotelImgWrapper" key={i}>
-                                    <img
-                                        onClick={() => handleOpen(i)}
-                                        src={photo}
-                                        alt=""
-                                        className="hotelImg"
-                                    />
-                                </div>
-                            ))}
+                            {/*{data.photos.map((photo, i) => (*/}
+                            {/*    <div className="hotelImgWrapper" key={i}>*/}
+                            {/*        <img*/}
+                            {/*            onClick={() => handleOpen(i)}*/}
+                            {/*            src={photo}*/}
+                            {/*            alt=""*/}
+                            {/*            className="hotelImg"*/}
+                            {/*        />*/}
+                            {/*    </div>*/}
+                            {/*))}*/}
                         </div>
                         <div className="hotelDetails">
                             <div className="hotelDetailsTexts">
                                 <h1 className="hotelTitle">{data.title}</h1>
-                                <p className="hotelDesc">{data.desc}</p>
+                                <p className="hotelDesc">{data.description}</p>
                             </div>
                             <div className="hotelDetailsPrice">
                                 <h1>Perfect for a {days}-night stay!</h1>
