@@ -4,6 +4,7 @@ const createError = require('../utils/error');
 const jwt = require('jsonwebtoken');
 
 class AuthController{
+
     register = async (req, res, next) => {
         try {
             const salt = bcrypt.genSaltSync(10);
@@ -19,6 +20,7 @@ class AuthController{
             next(err)
         }
     }
+    
     login = async (req, res, next) => {
         try {
             const user = await User.findOne({username: req.body.username});

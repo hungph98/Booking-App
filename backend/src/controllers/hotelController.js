@@ -1,4 +1,5 @@
 const Hotel = require("../models/Hotel");
+const Room = require("../models/Room");
 
 class HotelController {
 
@@ -83,6 +84,20 @@ class HotelController {
             ]);
         } catch (err){
             next(err);
+        }
+    }
+
+    getHotelRooms = async(req, res, next) => {
+        try {
+            const hotel = await Hotel.findById(req.params.id);
+            const list = await Promise.all(
+                hotel.rooms.map((room) => {
+                    return Room.findById(room);
+                })
+            )
+            res.status(200).json(list);
+        } catch(err) {
+            next(err)
         }
     }
 }
