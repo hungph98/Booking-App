@@ -13,8 +13,8 @@ class AuthController{
                 email: req.body.email,
                 password: passwordHash,
             });
-            const user = data.save();
-            res.status(200).json(user);
+            await data.save();
+            res.status(200).json("User has been created!");
         } catch (err) {
             next(err)
         }
